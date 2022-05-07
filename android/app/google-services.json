@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "361213681325",
+    "project_id": "fitness-d2225",
+    "storage_bucket": "fitness-d2225.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361213681325:android:a10e69bd2cb0e318ed3024",
+        "android_client_info": {
+          "package_name": "com.example.yoga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361213681325-7dnscvluj7qf59sa2rbme6ev1io4fdue.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaQzJzdYsTnxk-SeE-w0hjp-iwgqJ4J7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361213681325-7dnscvluj7qf59sa2rbme6ev1io4fdue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
