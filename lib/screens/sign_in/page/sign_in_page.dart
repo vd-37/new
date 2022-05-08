@@ -32,9 +32,9 @@ class SignInPage extends StatelessWidget {
           if (state is NextForgotPasswordPageState) {
             Navigator.of(context).push(MaterialPageRoute(builder: (_) => ForgotPasswordPage()));
           } else if (state is NextSignUpPageState) {
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => PatientScreen()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => SignUpPage()));
           } else if (state is NextTabBarPageState) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => TabBarPage()));
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => PatientScreen()));
           } else if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),

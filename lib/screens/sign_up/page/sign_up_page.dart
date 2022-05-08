@@ -20,9 +20,9 @@ class SignUpPage extends StatelessWidget {
         listenWhen: (_, currState) => currState is NextTabBarPageState || currState is NextSignInPageState || currState is ErrorState,
         listener: (context, state) {
           if (state is NextTabBarPageState) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => TabBarPage()));
-          } else if (state is NextSignInPageState) {
             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => PatientScreen()));
+          } else if (state is NextSignInPageState) {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => SignInPage()));
           } else if (state is ErrorState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.message)),

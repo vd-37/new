@@ -1,4 +1,4 @@
-// import 'package:cancer_yogi/patientScreen/profile.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +6,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/rendering.dart';
 import 'package:yoga/patientScreen/NavBar.dart';
 import 'package:yoga/screens/tab_bar/page/tab_bar_page.dart';
+
+import '../screens/workouts/page/workouts_page.dart';
 
 
 void main() {
@@ -24,27 +26,16 @@ class PatientScreen extends StatefulWidget {
 }
 
 class _PatientScreenState extends State<PatientScreen> {
-
-
-  final FirebaseAuth auth = FirebaseAuth.instance;
-   // inputData() {
-   //   final User? user = auth.currentUser;
-   //   final uid = user?.uid.toString();
-   //   return uid;
-   // }
-
-
-   String displayName=inputData();
   int day=0;
-
   int selsctedIconIndex = 2;
-
   double progress=0;
   double sleep=0;
   int dis=0;
 
   @override
   Widget build(BuildContext context) {
+    final User? user = FirebaseAuth.instance.currentUser;
+    final displayName = user?.displayName ?? "No Username";
     return Scaffold(
       backgroundColor: Colors.grey[100],
 
@@ -153,7 +144,7 @@ class _PatientScreenState extends State<PatientScreen> {
 
           Padding(
             padding: const EdgeInsets.only(left :30),
-            child: Text('Hi $inputData',
+            child: Text('Hi $displayName',
               textAlign: TextAlign.left,
               style: TextStyle(
                   fontSize: 30,
@@ -512,7 +503,7 @@ class _PatientScreenState extends State<PatientScreen> {
                           padding: const EdgeInsets.fromLTRB(15,30,0,0),
                           child: Text('APPOINTMENT',
                             style: TextStyle(
-                                fontSize: 37,
+                                fontSize: 35,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white
                             ),
@@ -542,60 +533,118 @@ class _PatientScreenState extends State<PatientScreen> {
               ),
             ),
           ),
-          Flexible(
-            child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-              itemCount: 3,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.fromLTRB(16,10,16,10),
-                  child: Container(
-                    margin: EdgeInsets.only(bottom: 13),
-                    padding: EdgeInsets.fromLTRB(24, 12,12, 22),
-                    height: 250,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(28),
-                        color: Colors.blueGrey,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 2.0,
-                          spreadRadius: 0.0,
-                          offset: Offset(2.0, 2.0), // shadow direction: bottom right
-                        )
-                      ],
-
-                     ),
-                  ),
-                );
-              }
-            ),
-          ),
           SizedBox(
-            height:10,
+            height: 10,
           ),
-          Flexible(
-            child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-                itemCount: 3,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(16,10,16,10),
-                    child: Container(
-                      margin: EdgeInsets.only(bottom: 13),
-                      padding: EdgeInsets.fromLTRB(24, 12,12, 22),
-                      height: 400,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(28),
-                          color: Colors.blueGrey
-                      ),
-                    ),
-                  );
-                }
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Text('Motivation',
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold
+            ),),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10,6,10,0),
+            child: Container(
+              padding: EdgeInsets.fromLTRB(2, 2,2, 2),
+              height: 260,
+              child: Padding(
+                padding: EdgeInsets.all(3),
+                child: Image.asset('assets/images/first.jpg',
+                  scale: 0.2,),
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(28),
+                color: Colors.transparent,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.transparent,
+                    blurRadius: 2.0,
+                    spreadRadius: 0.0,
+                    offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                  )
+                ],
+              ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10,6,10,0),
+            child: Container(
+
+              padding: EdgeInsets.fromLTRB(2, 2,2, 2),
+              height: 260,
+              child: Padding(
+                padding: EdgeInsets.all(3),
+                child: Image.asset('assets/images/second.jpg',
+                  scale: 0.2,),
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(28),
+                color: Colors.transparent,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.transparent,
+                    blurRadius: 2.0,
+                    spreadRadius: 0.0,
+                    offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                  )
+                ],
+              ),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10,6,10,0),
+            child: Container(
+              padding: EdgeInsets.fromLTRB(2, 2,2, 2),
+              height: 260,
+              child: Padding(
+                padding: EdgeInsets.all(3),
+                child: Image.asset('assets/images/fifft.jpg',
+                  scale: 0.2,),
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(28),
+                color: Colors.transparent,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.transparent,
+                    blurRadius: 2.0,
+                    spreadRadius: 0.0,
+                    offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                  )
+                ],
+              ),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10,6,10,0),
+            child: Container(
+              margin: EdgeInsets.only(bottom: 13),
+              padding: EdgeInsets.fromLTRB(2, 2,2, 2),
+              height: 260,
+              child: Padding(
+                padding: EdgeInsets.all(3),
+                child: Image.asset('assets/images/fourth.jpg',
+                  scale: 0.2,),
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(28),
+                color: Colors.transparent,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.transparent,
+                    blurRadius: 2.0,
+                    spreadRadius: 0.0,
+                    offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                  )
+                ],
+              ),
+            ),
+          ),
+
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
@@ -612,18 +661,42 @@ class _PatientScreenState extends State<PatientScreen> {
         ),
         items: <Widget>[
           Icon(Icons.add, size: 30
-          ,color: Colors.grey,),
-          Icon(Icons.search, size: 30,
-              color: Colors.grey),
-          Icon(Icons.home_outlined, size: 30,
-              color: Colors.grey),
-          Icon(Icons.favorite_border_outlined, size: 30,
-              color: Colors.grey),
-          Icon(Icons.person_outline, size: 30
-          ,color: Colors.grey),
+          ,color: Colors.black54),
+          GestureDetector(
+            onTap: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) =>  TabBarPage()));
+            },
+            child: Icon(Icons.search, size: 30,
+                color: Colors.black54),
+          ),
+          GestureDetector(
+            onTap: (){
+
+
+            },
+            child: Icon(Icons.home_outlined, size: 30,
+                color: Colors.black54),
+          ),
+
+          GestureDetector(
+            onTap: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) =>  WorkoutsPage()));
+            },
+            child: Icon(Icons.favorite_border_outlined, size: 30,
+                color: Colors.black54),
+          ),
+
+
+          GestureDetector(
+            onTap: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) =>  NavBar()));
+            },
+            child: Icon(Icons.person_outline, size: 30
+            ,color: Colors.black54),
+          ),
         ],
         color: Colors.white,
-        buttonBackgroundColor: Colors.black,
+        buttonBackgroundColor: Colors.white,
         backgroundColor: Colors.grey,
         animationCurve: Curves.easeInOut,
       ),

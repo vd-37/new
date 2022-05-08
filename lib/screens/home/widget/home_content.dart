@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:yoga/core/const/color_constants.dart';
 import 'package:yoga/core/const/data_constants.dart';
 import 'package:yoga/core/const/path_constants.dart';
 import 'package:yoga/core/const/text_constants.dart';
+import 'package:yoga/patientScreen/homeScreen.dart';
 import 'package:yoga/screens/edit_account/edit_account_screen.dart';
 import 'package:yoga/screens/home/bloc/home_bloc.dart';
 import 'package:yoga/screens/home/widget/home_statistics.dart';
@@ -95,8 +97,15 @@ class HomeContent extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
+
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+
+          GestureDetector(
+            onTap: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) =>  PatientScreen()));
+            },
+              child: Icon(FontAwesomeIcons.arrowLeft)),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -126,7 +135,7 @@ class HomeContent extends StatelessWidget {
                 child: photoUrl == null
                     ? CircleAvatar(
                         backgroundImage: AssetImage(PathConstants.profile),
-                        radius: 60)
+                        radius: 30)
                     : CircleAvatar(
                         child: ClipOval(
                             child: FadeInImage.assetNetwork(
